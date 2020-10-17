@@ -6,7 +6,7 @@ import json
 
 image_url = ""
 client = discord.Client()
-TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+TOKEN = 'NzY2NzY0ODc2OTgyNjQ4ODgy.X4oHcA.dCplC_XAIdRUfKJbiMJ_MyHEU6w'
 
 @client.event
 async def on_message(message):
@@ -128,6 +128,7 @@ async def on_message(message):
             for i in range(len(problem)):
                 if problem[i] == '.':
                     problem = problem.replace('.', '%2E')
+        print(problem)
 
         solution = requests.get('https://newton.now.sh/api/v2/zeroes/' + problem).text
         msg = json.loads(solution)
