@@ -6,7 +6,7 @@ import json
 
 image_url = ""
 client = discord.Client()
-TOKEN = 'NzY2NzY0ODc2OTgyNjQ4ODgy.X4oHcA.IStMDtup6MXXnPXcfNDBwPbO-OM'
+TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 @client.event
 async def on_message(message):
