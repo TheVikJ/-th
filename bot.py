@@ -128,7 +128,6 @@ async def on_message(message):
             for i in range(len(problem)):
                 if problem[i] == '.':
                     problem = problem.replace('.', '%2E')
-        print(problem)
 
         solution = requests.get('https://newton.now.sh/api/v2/zeroes/' + problem).text
         msg = json.loads(solution)
