@@ -7,8 +7,8 @@ import wolframalpha
 
 image_url = ""
 client = discord.Client()
-TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-WOLFRAM = 'XXXXXXXXXXXXXXXX'
+TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+WOLFRAM = 'XXXXXXXXXXXXXXXXX'
 wolframclient = wolframalpha.Client(WOLFRAM)
 
 @client.event
@@ -17,22 +17,10 @@ async def on_message(message):
         return
 
     if message.content.startswith('!factor'):
-        problem = message.content.replace('!factor ', '')
-        if '+' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '+':
-                    problem = problem.replace('+', '%2B')
-        if '^' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '^':
-                    problem = problem.replace('^', '%5E')
-        if '.' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '.':
-                    problem = problem.replace('.', '%2E')
-        solution = requests.get('https://newton.now.sh/api/v2/factor/' + problem).text
-        msg = json.loads(solution)
-        await message.channel.send(msg.get('result'))
+        problem = message.content.replace('!factor ', 'factor ')
+        res = wolframclient.query(problem)
+        ans = next(res.results).text
+        await message.channel.send(ans)
 
     if message.content.startswith('!domain'):
         problem = message.content.replace('!domain ', 'domain of ')
@@ -53,40 +41,10 @@ async def on_message(message):
         await message.channel.send(ans)
 
     if message.content.startswith('!simplify'):
-        problem = message.content.replace('!simplify ', '')
-        if '+' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '+':
-                    problem = problem.replace('+', '%2B')
-        if '^' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '^':
-                    problem = problem.replace('^', '%5E')
-        if '.' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '.':
-                    problem = problem.replace('.', '%2E')
-        solution = requests.get('https://newton.now.sh/api/v2/simplify/' + problem).text
-        msg = json.loads(solution)
-        await message.channel.send(msg.get('result'))
-
-    if message.content.startswith('!roots'):
-        problem = message.content.replace('!roots ', '')
-        if '+' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '+':
-                    problem = problem.replace('+', '%2B')
-        if '^' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '^':
-                    problem = problem.replace('^', '%5E')
-        if '.' in problem:
-            for i in range(len(problem)):
-                if problem[i] == '.':
-                    problem = problem.replace('.', '%2E')
-        solution = requests.get('https://newton.now.sh/api/v2/zeroes/' + problem).text
-        msg = json.loads(solution)
-        await message.channel.send(msg.get('result'))
+        problem = message.content.replace('!simplify ', 'simplify ')
+        res = wolframclient.query(problem)
+        ans = next(res.results).text
+        await message.channel.send(ans)
 
     if message.content.startswith('!imgdomain'):
         problem = 'domain of f(x) = '
@@ -111,7 +69,14 @@ async def on_message(message):
         res = wolframclient.query(problem)
         ans = next(res.results).text
         await message.channel.send(ans)
-        
+
+    if message.content.startswith('!roots'):
+        problem = message.content.replace('!roots ', 'solve ')
+        problem += ' = 0 for x'
+        res = wolframclient.query(problem)
+        ans = next(res.results).text
+        await message.channel.send(ans)
+
     if message.content.startswith('!imgsolve'):
         problem = 'solve '
 
