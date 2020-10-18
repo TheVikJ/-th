@@ -1,6 +1,8 @@
 # Σth
 Σth (sigmath): your favourite homework helper discord bot
 
+This project was made for and submitted to the Hackrithmitic Hackathon.
+
 ## Inspiration 🧠
 For the past few months, I've loved to create discord bots in Python using the discord.py package so I knew I wanted to do something with that. I married that with the fact that I always study with friends using Discord where we often solve the demanding questions of IB Maths Analysis and Approaches, Higher Level. One thing I noticed was that there wasn't this thing I could just screenshot my problem into which solves it, at least not on Discord which many use to study. Thus, Σth was born.
 
