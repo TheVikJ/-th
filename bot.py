@@ -56,8 +56,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem += pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem += pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem) - 1], '')
 
         for i in range(len(problem)):
@@ -80,8 +80,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem += pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem += pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem) - 1], '')
 
         for i in range(len(problem)):
@@ -111,8 +111,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem += pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem += pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem) - 1], '')
 
         for i in range(len(problem)):
@@ -133,8 +133,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem = pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem = pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem)-1], '')
         for i in range(len(problem)):
             if problem[i] in "*%":
@@ -166,8 +166,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem = pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem = pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem)-1], '')
         for i in range(len(problem)):
             if problem[i] in "*%":
@@ -200,8 +200,8 @@ async def on_message(message):
         shutil.copyfileobj(imgget.raw, local_file)
         del imgget
 
-        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
-        problem = pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        pytesseract.pytesseract.tesseract_cmd = r'PATH TO TESSETRACT EXE FILE'
+        problem = pytesseract.image_to_string(r'PATH TO local_image.jpg')
         problem = problem.replace(problem[len(problem)-1], '')
         for i in range(len(problem)):
             if problem[i] in "*%":
