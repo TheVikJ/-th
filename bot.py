@@ -70,6 +70,30 @@ async def on_message(message):
         ans = next(res.results).text
         await message.channel.send(ans)
 
+    if message.content.startswith('!imgrange'):
+        problem = 'range of f(x) = '
+
+        image_url = message.attachments[0].url
+        local_file = open('local_image.jpg', 'wb')
+        imgget = requests.get(image_url, stream=True)
+        imgget.raw.decode_content = True
+        shutil.copyfileobj(imgget.raw, local_file)
+        del imgget
+
+        pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
+        problem += pytesseract.image_to_string(r'C:\Users\91959\PycharmProjects\sigmath\local_image.jpg')
+        problem = problem.replace(problem[len(problem) - 1], '')
+
+        for i in range(len(problem)):
+            if problem[i] in "*%":
+                problem = problem.replace(problem[i], '^')
+            elif problem[i] in "?":
+                problem = problem.replace(problem[i], '^2')
+
+        res = wolframclient.query(problem)
+        ans = next(res.results).text
+        await message.channel.send(ans)
+        
     if message.content.startswith('!roots'):
         problem = message.content.replace('!roots ', 'solve ')
         problem += ' = 0 for x'
